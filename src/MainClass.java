@@ -10,6 +10,7 @@ public class MainClass {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int numberOfTask = Integer.parseInt(bufferedReader.readLine());
 
+        System.out.println("Please, input task value.");
         try{
             switch (numberOfTask){
                 case 1:
@@ -37,13 +38,25 @@ public class MainClass {
                     mainClass.Task3(moneyValue);
 
                     break;
-                case 4:System.out.println(); break;
-                case 5:System.out.println(); break;
+                case 4:
+                    System.out.println("You`ve choose task 4, please input value: ");
+
+                    double inputValue = Double.parseDouble(bufferedReader.readLine());
+                    mainClass.Task4(inputValue);
+
+                    break;
+                case 5:
+                    System.out.println("You`ve choose task 5, please input date: ");
+
+                    int inputValueTask5 = Integer.parseInt(bufferedReader.readLine());
+                    mainClass.Task5(inputValueTask5);
+                    break;
                 case 6:System.out.println(); break;
                 case 7:System.out.println(); break;
                 case 8:System.out.println(); break;
                 case 9:System.out.println(); break;
                 case 10:System.out.println(); break;
+                default: throw new Exception("Please input a valid number(1 to 10)");
             }
         }
         catch (NumberFormatException ex){
@@ -86,6 +99,35 @@ public class MainClass {
         }
         else{
             System.out.println("No discount available.");
+        }
+    }
+
+    /*
+     * Write a program that checks if the input is the user is an even integer.
+     */
+    public void Task4(double inputValue){
+        if (inputValue % 2 == 0){
+            System.out.println("Number is even.");
+        }
+        else{
+            System.out.println("Number isn`t even");
+        }
+    }
+
+    /*
+    * Write a program that checks if the input is divisible by three keyboard is an integer.
+    */
+    public void Task5(int inputValue) throws Exception {
+        if(inputValue <= 0){
+            throw new Exception("Input number must be higher than 0.");
+        }
+        else{
+            if (inputValue / 3 == 0){
+                System.out.println("Number" + inputValue + "divisible by three.");
+            }
+            else{
+                System.out.println("Number" + inputValue + "not divisible by three.");
+            }
         }
     }
 }
