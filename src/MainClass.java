@@ -14,6 +14,7 @@ public class MainClass {
 
         int numberOfTask = Integer.parseInt(bufferedReader.readLine());
         double inputDoubleValue;
+        double secondValue;
         int inputIntValue;
 
         try{
@@ -22,7 +23,7 @@ public class MainClass {
                     System.out.println("You`ve choose task 1, please input two numbers: ");
 
                     inputDoubleValue = Double.parseDouble(bufferedReader.readLine());
-                    double secondValue = Double.parseDouble(bufferedReader.readLine());
+                    secondValue = Double.parseDouble(bufferedReader.readLine());
 
                     System.out.println("Result is: " + mainClass.Task1(inputDoubleValue, secondValue));
 
@@ -80,8 +81,15 @@ public class MainClass {
 
                     mainClass.Task8(inputIntValue);
                     break;
-                case 9:System.out.println(); break;
-                case 10:System.out.println(); break;
+                case 9:
+                    System.out.println("You`ve choose task 9, please input day and minutes value: ");
+
+                    inputDoubleValue = Double.parseDouble(bufferedReader.readLine());
+                    secondValue = Double.parseDouble(bufferedReader.readLine());
+
+                    mainClass.Task9(inputDoubleValue, secondValue);
+                    break;
+                case 10: System.out.println(); break;
                 default: throw new Exception("Please input a valid number(1 to 10)");
             }
         }
@@ -227,4 +235,31 @@ public class MainClass {
             }
         }
     }
+
+    /*
+     * You are given real numbers x and y, not equal to each other.
+     */
+    public void Task9(double firstValue, double secondValue) throws Exception {
+        if(firstValue == secondValue){
+            throw new Exception("Values must not equal to each other.");
+        }
+        else{
+            double tempForFirstValue;
+            double tempForSecondValue;
+            if(firstValue < secondValue){
+                tempForFirstValue = (firstValue + secondValue) / 2;
+                tempForSecondValue = (firstValue * secondValue) * 2;
+            }
+            else{
+                tempForFirstValue = (firstValue * secondValue) * 2;
+                tempForSecondValue = (firstValue + secondValue) / 2;
+            }
+            System.out.println("firstValue is: " + tempForFirstValue);
+            System.out.println("secondValue is: " + tempForSecondValue);
+        }
+    }
+
+    /*
+     * You are given real numbers x and y, not equal to each other.
+     */
 }
