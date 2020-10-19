@@ -7,12 +7,15 @@ import java.io.InputStreamReader;
 public class MainClass {
     public static void main(String[] args) throws Exception{
         MainClass mainClass = new MainClass();
+
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.println("Please, input task value.");
+
         int numberOfTask = Integer.parseInt(bufferedReader.readLine());
         double inputDoubleValue;
         int inputIntValue;
 
-        System.out.println("Please, input task value.");
         try{
             switch (numberOfTask){
                 case 1:
