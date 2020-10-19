@@ -66,7 +66,13 @@ public class MainClass {
                     mainClass.Task6(dayOfWeek, inputDoubleValue);
 
                     break;
-                case 7:System.out.println(); break;
+                case 7:
+                    System.out.println("You`ve choose task 7, please input day and minutes value: ");
+
+                    inputIntValue = Integer.parseInt(bufferedReader.readLine());
+
+                    mainClass.Task7(inputIntValue);
+                    break;
                 case 8:System.out.println(); break;
                 case 9:System.out.println(); break;
                 case 10:System.out.println(); break;
@@ -158,5 +164,40 @@ public class MainClass {
         }
         System.out.print("Speak cost: ");
         System.out.format("%.2f%n", resultOfCostOperation);
+    }
+
+    /*
+     * A three-digit number is given. Determine which of its numbers is greater.
+     */
+    public void Task7(int value) throws Exception {
+        if(value < 100 || value > 999){
+            throw new Exception("Value must be less than 999 and more than 100.");
+        }
+        else{
+            int value1 = value % 10;
+            int value2 = (value/10) % 10;
+            int value3 = (value/100) % 10;
+
+            if(value1 > value3){
+                System.out.println("third value is higher.");
+            }
+            else{
+                System.out.println("first value is higher.");
+            }
+
+            if(value1 > value2){
+                System.out.println("first value is higher.");
+            }
+            else{
+                System.out.println("second value is higher.");
+            }
+
+            if(value2 > value3){
+                System.out.println("second value is higher.");
+            }
+            else{
+                System.out.println("third value is higher.");
+            }
+        }
     }
 }
