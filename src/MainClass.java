@@ -89,7 +89,15 @@ public class MainClass {
 
                     mainClass.Task9(inputDoubleValue, secondValue);
                     break;
-                case 10: System.out.println(); break;
+                case 10:
+                    System.out.println("You`ve choose task 10, please input day and minutes value: ");
+
+                    inputDoubleValue = Double.parseDouble(bufferedReader.readLine());
+                    secondValue = Double.parseDouble(bufferedReader.readLine());
+
+                    mainClass.Task10(inputDoubleValue, secondValue);
+
+                    break;
                 default: throw new Exception("Please input a valid number(1 to 10)");
             }
         }
@@ -260,6 +268,20 @@ public class MainClass {
     }
 
     /*
-     * You are given real numbers x and y, not equal to each other.
+     * Write a program for solving the equation ax3 + bx = 0 for arbitrary a, b.
      */
+    public void Task10(double firstValue, double secondValue) throws Exception {
+        if(firstValue == 0 || secondValue == 0){
+            throw new Exception("Values must not be 0.");
+        }
+        else{
+            double X2data = (-secondValue / firstValue);
+            double X3data = secondValue / firstValue;
+            double X2result = -1 * Math.sqrt(X2data);
+            double X3result = Math.sqrt(X3data);
+            System.out.println("x1 = 0");
+            System.out.println("x2 = " + X2result);
+            System.out.println("x3 = " + X3result);
+        }
+    }
 }
