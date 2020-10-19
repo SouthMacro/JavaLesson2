@@ -73,7 +73,13 @@ public class MainClass {
 
                     mainClass.Task7(inputIntValue);
                     break;
-                case 8:System.out.println(); break;
+                case 8:
+                    System.out.println("You`ve choose task 8, please input day and minutes value: ");
+
+                    inputIntValue = Integer.parseInt(bufferedReader.readLine());
+
+                    mainClass.Task8(inputIntValue);
+                    break;
                 case 9:System.out.println(); break;
                 case 10:System.out.println(); break;
                 default: throw new Exception("Please input a valid number(1 to 10)");
@@ -197,6 +203,27 @@ public class MainClass {
             }
             else{
                 System.out.println("third value is higher.");
+            }
+        }
+    }
+
+    /*
+     * A three-digit number is given. Determine if the square of this number is equal to the sum cubes of his digits.
+     */
+    public void Task8(int value) throws Exception {
+        if(value < 100 || value > 999){
+            throw new Exception("Value must be less than 999 and more than 100.");
+        }
+        else{
+            int value1 = value % 10;
+            int value2 = (value/10) % 10;
+            int value3 = (value/100) % 10;
+
+            if(value * value == value1 * value1 * value1 + value2 * value2 * value2 + value3 * value3 * value3){
+                System.out.println("Sum is equal");
+            }
+            else{
+                System.out.println("Sum is not equal");
             }
         }
     }
