@@ -9,6 +9,8 @@ public class MainClass {
         MainClass mainClass = new MainClass();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int numberOfTask = Integer.parseInt(bufferedReader.readLine());
+        double inputDoubleValue;
+        int inputIntValue;
 
         System.out.println("Please, input task value.");
         try{
@@ -16,42 +18,51 @@ public class MainClass {
                 case 1:
                     System.out.println("You`ve choose task 1, please input two numbers: ");
 
-                    double firstValue = Double.parseDouble(bufferedReader.readLine());
+                    inputDoubleValue = Double.parseDouble(bufferedReader.readLine());
                     double secondValue = Double.parseDouble(bufferedReader.readLine());
 
-                    System.out.println("Result is: " + mainClass.Task1(firstValue, secondValue));
+                    System.out.println("Result is: " + mainClass.Task1(inputDoubleValue, secondValue));
 
                     break;
                 case 2:
                     System.out.println("You`ve choose task 2, please input date: ");
 
                     System.out.println("In what year was Odessa founded?");
-                    int date = Integer.parseInt(bufferedReader.readLine());
+                    inputIntValue = Integer.parseInt(bufferedReader.readLine());
 
-                    mainClass.Task2(date);
+                    mainClass.Task2(inputIntValue);
 
                     break;
                 case 3:
                     System.out.println("You`ve choose task 3, please input money value: ");
 
-                    double moneyValue = Double.parseDouble(bufferedReader.readLine());
-                    mainClass.Task3(moneyValue);
+                    inputDoubleValue = Double.parseDouble(bufferedReader.readLine());
+                    mainClass.Task3(inputDoubleValue);
 
                     break;
                 case 4:
                     System.out.println("You`ve choose task 4, please input value: ");
 
-                    double inputValue = Double.parseDouble(bufferedReader.readLine());
-                    mainClass.Task4(inputValue);
+                    inputDoubleValue = Double.parseDouble(bufferedReader.readLine());
+                    mainClass.Task4(inputDoubleValue);
 
                     break;
                 case 5:
                     System.out.println("You`ve choose task 5, please input date: ");
 
-                    int inputValueTask5 = Integer.parseInt(bufferedReader.readLine());
-                    mainClass.Task5(inputValueTask5);
+                    inputIntValue = Integer.parseInt(bufferedReader.readLine());
+                    mainClass.Task5(inputIntValue);
                     break;
-                case 6:System.out.println(); break;
+                case 6:
+                    System.out.println("You`ve choose task 6, please input day and minutes value: ");
+
+                    inputDoubleValue = Double.parseDouble(bufferedReader.readLine());
+                    inputIntValue = Integer.parseInt(bufferedReader.readLine());
+                    DayOfWeek dayOfWeek = DayOfWeek.values()[inputIntValue];
+
+                    mainClass.Task6(dayOfWeek, inputDoubleValue);
+
+                    break;
                 case 7:System.out.println(); break;
                 case 8:System.out.println(); break;
                 case 9:System.out.println(); break;
@@ -129,5 +140,20 @@ public class MainClass {
                 System.out.println("Number" + inputValue + "not divisible by three.");
             }
         }
+    }
+
+    /*
+     * Write a program to calculate the cost of a phone call with taking into account the 20% discount provided on Saturdays and Sundays.
+     */
+    public void Task6(DayOfWeek dayOfWeek, double minutes){
+        double resultOfCostOperation;
+        if (dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday){
+            resultOfCostOperation = (minutes * 0.8) * 2;
+        }
+        else{
+            resultOfCostOperation = minutes * 2;
+        }
+        System.out.print("Speak cost: ");
+        System.out.format("%.2f%n", resultOfCostOperation);
     }
 }
