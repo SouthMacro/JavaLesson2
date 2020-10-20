@@ -126,7 +126,7 @@ public class MainClass {
     * Write a program to calculate the cost of a purchase, taking into account the discount.
     */
     public void Task3(double cost){
-        if(cost >= 500){
+        if(cost >= 500 && cost < 1000){
             System.out.println("You get a 3% discount");
             double costResult = cost - (cost * 0.03);
             System.out.println("Amount with discount:" + costResult);
